@@ -1,12 +1,15 @@
 {
   "private": true,
   "scripts": {
-    "build": "nuxi generate",
-    "dev": "nuxi dev",
-    "generate": "nuxi generate",
-    "preview": "nuxi preview"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
   },
   "devDependencies": {
     "nuxt": "3.0.0-rc.8"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.6"
   }
 }
