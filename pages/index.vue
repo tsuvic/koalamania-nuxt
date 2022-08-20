@@ -9,7 +9,7 @@
             <div class="masthead">
                 <div class="masthead_content">
                     <div class="logo">
-                        <img src="/images/title.png" alt="title">
+                        <img src="~assets/images/title.png" alt="title">
                     </div>
                     <div class="copy">
                         <p>コアラのことがもっと好きになるデータベース</p>
