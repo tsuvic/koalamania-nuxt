@@ -11,7 +11,7 @@ export default defineNuxtConfig({
       '@/assets/css/background.css',
       '@/assets/css/common.css',
       '@/assets/css/index.css',
-      '@/assets/css/searchResult.css'
+      '@/assets/css/searchResult.css',
     ],
     app: {
         head: {
@@ -25,5 +25,13 @@ export default defineNuxtConfig({
             { src: '/js/bootstrap.min.js' }
           ]
       }
-    }
+    },
+    build: {
+      transpile: ['vuetify'],
+    },
+    vite: {
+      define: {
+        'process.env.DEBUG': false,
+      },
+    },
 })
