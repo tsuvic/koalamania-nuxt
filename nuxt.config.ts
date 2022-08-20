@@ -3,7 +3,7 @@ import { defineNuxtConfig } from 'nuxt'
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
     ssr: false,
-    
+
     //https://zenn.dev/one_dock/articles/64bd100b83074b
     css: [
       '@/assets/css/bootstrap.min.css',
@@ -31,7 +31,7 @@ export default defineNuxtConfig({
           meta: [
             // <meta name="viewport" content="width=device-width, initial-scale=1">
             { name: 'viewport', content: 'width=device-width, initial-scale=1' }
-          ]
+          ],
       }
     }
 })
