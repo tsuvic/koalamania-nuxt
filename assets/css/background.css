@@ -3,7 +3,7 @@ body {
 }
 
 .masthead{
-	background-image: url("/images/background-medium.jpg");
+	background-image: url("@/assets/images/background-medium.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-attachment: scroll;

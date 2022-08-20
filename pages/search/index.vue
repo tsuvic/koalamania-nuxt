@@ -37,9 +37,9 @@
                                                 v-bind:key="animal.animal_id">
                                                 <div class="koalaItem_header">
                                                       <div class="koalaItemName">
-                                                            <img v-if="animal.sex == 1" src="/images/male.png">
-                                                            <img v-else-if="animal.sex == 2" src="/images/female.png">
-                                                            <img v-else src="/images/question.png">
+                                                            <img v-if="animal.sex == 1" src="/assets/images/male.png">
+                                                            <img v-else-if="animal.sex == 2" src="/assets/images/female.png">
+                                                            <img v-else src="/assets/images/question.png">
                                                             <p>{{ animal.name }}</p>
                                                       </div>
                                                       <div class="koalaItemInfo">
