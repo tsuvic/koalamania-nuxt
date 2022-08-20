@@ -12,8 +12,8 @@ export default defineNuxtConfig({
           script: [
             // <script src="https://myawesome-lib.js"></script>
             { src: '~assets/js/jquery-slim.min.js' },
-            { src: '~/assets/js/popper.min.js' },
-            { src: '~/assets/js/bootstrap.min.js' }
+            { src: '~assets/js/popper.min.js' },
+            { src: '~assets/js/bootstrap.min.js' }
           ],
           link: [
             // <link rel="stylesheet" href="https://myawesome-lib.css">
