@@ -41,7 +41,7 @@
                         <div class="topsearch_keyword">
                             <div class="formtext">
                                 <input class="formtext" type="text" name="keyword" v-model="keyword"
-                                    placeholder="コアラ・動物園名">
+                                    placeholder="コアラ・動物園名"  @keydown.enter.prevent="search">
                                 <button class="topsearch_button text-white" @click="search">さがす</button>
                             </div>
                         </div>
