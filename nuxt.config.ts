@@ -11,7 +11,8 @@ export default defineNuxtConfig({
       '@/assets/css/background.css',
       '@/assets/css/common.css',
       '@/assets/css/index.css',
-      '@/assets/css/searchResult.css'
+      '@/assets/css/searchResult.css',
+      '@/assets/css/pagenation.css'
     ],
     app: {
         head: {

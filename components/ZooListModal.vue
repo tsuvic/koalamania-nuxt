@@ -31,7 +31,7 @@ const zooList = ref([])
 const buttonMessage = ref("")
 const checkedZoo = ref([])
 
-axios.get('http://localhost:8080/api/zoo').then((response) => {
+axios.get('https://koalamania.herokuapp.com/api/zoo').then((response) => {
     zooList.value = response.data
 })
 
