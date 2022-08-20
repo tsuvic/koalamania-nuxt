@@ -11,18 +11,18 @@ export default defineNuxtConfig({
           ],
           script: [
             // <script src="https://myawesome-lib.js"></script>
-            { src: '/assets/js/jquery-slim.min.js' },
-            { src: '/assets/js/popper.min.js' },
-            { src: '/assets/js/bootstrap.min.js' }
+            { src: '~assets/js/jquery-slim.min.js' },
+            { src: '~assets/js/popper.min.js' },
+            { src: '~assets/js/bootstrap.min.js' }
           ],
           link: [
             // <link rel="stylesheet" href="https://myawesome-lib.css">
-            { rel: 'stylesheet', href: '/assets/css/bootstrap.min.css' },
-            { rel: 'stylesheet', href: '/assets/css/starter-template.css' },
-            { rel: 'stylesheet', href: '/assets/css/background.css' },
-            { rel: 'stylesheet', href: '/assets/css/common.css' },
-            { rel: 'stylesheet', href: '/assets/css/index.css' },
-            { rel: 'stylesheet', href: '/assets/css/searchResult.css' }
+            { rel: 'stylesheet', href: '~assets/css/bootstrap.min.css' },
+            { rel: 'stylesheet', href: '~assets/css/starter-template.css' },
+            { rel: 'stylesheet', href: '~assets/css/background.css' },
+            { rel: 'stylesheet', href: '~assets/css/common.css' },
+            { rel: 'stylesheet', href: '~assets/css/index.css' },
+            { rel: 'stylesheet', href: '~assets/css/searchResult.css' }
           ]
       }
     }
