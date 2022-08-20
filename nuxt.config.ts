@@ -13,25 +13,17 @@ export default defineNuxtConfig({
       '@/assets/css/index.css',
       '@/assets/css/searchResult.css'
     ],
-    script: [
-      { src: '@/assets/js/jquery-slim.min.js' },
-      { src: '@/assets/js/popper.min.js' },
-      { src: '@/assets/js/bootstrap.min.js' }
-    ],
-    images: [
-      '@/assets/images/background-medium.jpg',
-      '@/assets/images/defaultAnimal.png',
-      '@/assets/images/male.png',
-      '@/assets/images/female.png',
-      '@/assets/images/question.png',
-      '@/assets/images/title.png',
-    ],
     app: {
         head: {
           meta: [
             // <meta name="viewport" content="width=device-width, initial-scale=1">
             { name: 'viewport', content: 'width=device-width, initial-scale=1' }
           ],
+          script: [
+            { src: '/js/jquery-slim.min.js' },
+            { src: '/js/popper.min.js' },
+            { src: '/js/bootstrap.min.js' }
+          ]
       }
     }
 })
