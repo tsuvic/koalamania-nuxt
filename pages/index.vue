@@ -64,7 +64,7 @@ const isSearch = true
 const search = () => {
 
     return navigateTo({
-        path: '/search',
+        path: '/animal',
         query: {
             keyword: keyword.value
         }
@@ -74,7 +74,7 @@ const search = () => {
 const searchFromZoo = (zooSearch) => {
     let str = zooSearch.value.length > 0 ? zooSearch.value.join(',') : null;
     return navigateTo({
-        path: '/search',
+        path: '/animal',
         query: {
             zoo: str
         }
