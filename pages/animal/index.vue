@@ -42,7 +42,21 @@
                               <div class="results">
                                     <div class="koalaList">
                                           <div class="koalaItem" v-for="animal in animalList"
-                                                v-bind:key="animal.animal_id">
+                                                v-bind:key="animal.animal_id" @click="navigateDetails(animal)">
+                                                <!-- 
+                                                      router.push() ・ navigateTo() ・NuxtLinkとの使い分けは？
+
+                                                      router.push()はNuxt2での機能
+                                                            https://uncle-javascript.com/vue-onclick-arguments
+                                                            https://qlitre-weblog.com/nuxt3-microcms-blog-keyword-search/
+
+
+                                                      NuxtLinkはリンクを作成するが・・navigateToとの違いは要確認
+                                                      公式にはどちらの記載もある
+                                                            <NuxtLink v-bind:to="animal.name">
+                                                            https://note.com/yunp_q/n/n4e6f0d94121b
+                                                -->
+                                                
                                                 <div class="koalaItem_header">
                                                       <div class="koalaItemName">
                                                             <img v-if="animal.sex == 1" src="@/assets/images/male.png">
@@ -101,16 +115,10 @@
                                                                         </li>
                                                                   </ul>
                                                             </div>
-                                                            <div class="links">
-                                                                  <a class="btn btn-sm btn-info"
-                                                                        :href='`/ detail / ${animal.animal_id} `'>詳細情報</a>
-                                                                  &nbsp;<a class="btn btn-sm btn-primary"
-                                                                        :href='`/ familytree ? id = ${animal.animal_id} `'>家系図</a>
-                                                            </div>
                                                       </div>
                                                 </div>
+                                                
                                           </div>
-
                                     </div>
                               </div>
                               <div class="pagination" v-show="isPageShow">
@@ -181,6 +189,11 @@ const search = () => {
       })
 }
 
+const navigateDetails = (animal) => {
+      return navigateTo({
+            path: animal.name
+      });
+}
 const customFormat = (customdate) => {
       let date = new Date(customdate);
       return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`
