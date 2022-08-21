@@ -1,7 +1,6 @@
 <template>
     <div>
         <NuxtLayout>
-
             <Head>
                 <Title>{{ title }}</Title>
             </Head>
@@ -55,8 +54,6 @@
 </template>
 
 <script setup>
-import axios from 'axios'
-
 const title = ref('トップページ')
 const keyword = ref("")
 const isSearch = true
