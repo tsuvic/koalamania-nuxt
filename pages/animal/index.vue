@@ -36,6 +36,7 @@
                                     </div>
                                     <button class="col-4 btn btn-success" type="submit" @click="pushSearchButton">検索</button>
                               </div>
+                              
                         </div>
 
                         <div class="searchResult_content">
