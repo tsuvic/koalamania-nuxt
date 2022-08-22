@@ -1,21 +1,41 @@
 <template>
-  <!-- <v-card class="mx-auto" max-width="374" height="1422"> -->
+
   <div v-if="user" class="d-flex flex-column justify-content-center align-items-center m-1">
     <div class="text-center">
       <v-avatar size="120" class="mx-auto">
         <v-img cover :src="user.profileImagePath"></v-img>
       </v-avatar>
     </div>
-    <div class="m-1 d-flex align-items-center">
-      <div class="fs-4 fw-bold text-center">
+    <div class="m-1 d-flex">
+      <div class="m-1">
         {{ user.username }}
       </div>
-      <div v-if="user.twitterLinkFlag" @click="navigateToTwitter">
-        <img class="m-2 img-responsive" height="18" width="18" src="@/assets/images/2021-Twitter-logo-blue.png">
+      <!-- https://v3.nuxtjs.org/api/components/nuxt-link/#target-and-rel-attributes -->
+      <!-- 動的なパスパラメータを持たせたNuxtLinkを貼ることができず、twitterLinkの変数で動的なリンクを生成し、v-bindする -->
+      <NuxtLink v-if="user.twitterLinkFlag" v-bind:to="twitterLink">
+        <img class="m-1 img-responsive" height="18" width="18" src="@/assets/images/2021-Twitter-logo-blue.png">
+      </NuxtLink>
+    </div>
+    <div class="d-flex align-items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="m-1"
+        viewBox="0 0 16 16">
+        <path
+          d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+      </svg>
+      <div class="fs-7 text-center">{{user.favoriteZoo}}</div>
+    </div>
+    <div id="profile" class="d-flex align-items-center m-3">
+      <div class="profile-info text-center text-blue-grey-darken-1">
+        {{ user.profile }}
       </div>
     </div>
+    <v-btn large class="mb-5" th:if="${editFlag}"
+      th:onclick="' location.href = \'' + @{/users/edit/{user_id}(user_id=*{user_id})} + ' \' '">
+      <span class="fs-6">&nbsp;プロフィール編集&nbsp;</span>
+    </v-btn>
   </div>
-  <!-- </v-card> -->
+
 </template>
 
 
@@ -28,6 +48,7 @@ const posts = ref();
 const comments = ref();
 const images = ref();
 const favorites = ref();
+const twitterLink = ref();
 const apiClient = axios.create({
   baseURL: 'https://koalamania.herokuapp.com/api/users/',
   headers: {
@@ -41,6 +62,7 @@ const onUserPageLoaded = () => {
   apiClient.get(`${route.params.id}`)
     .then(res => {
       user.value = res.data
+      twitterLink.value = 'https://twitter.com/' + user.value.provider_adress;
     })
     .catch(err => {
       console.log(err)
