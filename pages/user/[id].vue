@@ -23,7 +23,9 @@
           d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
         <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
       </svg>
-      <div class="fs-7 text-center">{{user.favoriteZoo}}</div>
+      <div class="fs-7 text-center">
+        {{favoriteZoo.zoo_name}}
+      </div>
     </div>
     <div id="profile" class="d-flex align-items-center m-3">
       <div class="profile-info text-center text-blue-grey-darken-1">
@@ -44,6 +46,7 @@ import axios from 'axios'
 
 const route = useRoute();
 const user = ref();
+const favoriteZoo = ref();
 const posts = ref();
 const comments = ref();
 const images = ref();
@@ -59,10 +62,22 @@ const apiClient = axios.create({
 })
 
 const onUserPageLoaded = () => {
+
+  //ユーザー情報を取得・NuxtLinkでTwitterへのリンクを貼るためにtwitterLink（リアクティブオブジェクト）に値を格納
   apiClient.get(`${route.params.id}`)
     .then(res => {
       user.value = res.data
       twitterLink.value = 'https://twitter.com/' + user.value.provider_adress;
+    })
+    .catch(err => {
+      console.log(err)
+    })
+
+  //お気に入り動物園情報を取得（ユーザー情報とエンドポイントが異なるため、個別にAPIコールする
+  //ORMを用いたシンプルなSQLを発行することを目的として、バックエンドでエンティティの設計上、ユーザー情報にお気に入りの動物園名を持たせていないためである
+  apiClient.get(`${route.params.id}/favoriteZoo`)
+    .then(res => {
+      favoriteZoo.value = res.data
     })
     .catch(err => {
       console.log(err)
